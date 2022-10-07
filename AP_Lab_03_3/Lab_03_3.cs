@@ -13,18 +13,19 @@ namespace AP_Lab_03_3
         {
             Console.OutputEncoding = System.Text.Encoding.Default;
 
-            double x, R, y;
             Console.Write("Введіть змінні \"x\" та \"R\" по черзі через крапку з комою: ");
 
             string[] varArray = Console.ReadLine().Split(';');
 
-            x = Double.Parse(varArray[0].Replace('.', ','));
-            R = Double.Parse(varArray[1].Replace('.', ','));
+            double x = Double.Parse(varArray[0].Replace('.', ',')), 
+                R = Double.Parse(varArray[1].Replace('.', ','));
 
-            /* x < 0 -> y = (-R/6 * x);
+            /* x < 0 -> y = (-R/6 * x) - R;
              * 0 < x < R -> y = sqrt(R^2 - x^2);
              * R < x < 2R -> y = sqrt(R^2 - (x - 2R)^2)
              * x > 2R -> y = R. */
+            double y;
+
             if (x < 0)
                 y = (-R / 6 * x) - R;
 
